@@ -253,7 +253,7 @@ class Client
                 $this->error = $error;
                 // Error Message
                 $message = $error->error->what;
-                if (isset($error->error->details)) {
+                if (isset($error->error->details) && $error->error->details) {
                     $message = $error->error->details[0]->message;
                 }
                 throw new \Exception($message, $error->code);
